@@ -10,8 +10,9 @@ public class Customer {
     private Date dateLoanTo;
     private Date dateLoanFrom;
     private double loanAmount;
+    private double customersWeight;
 
-    public Customer(Integer id, String name, double rate, String typeLoan, Integer qualityCategory, Date dateLoanTo, Date dateLoanFrom, double loanAmount) {
+    public Customer(Integer id, String name, double rate, String typeLoan, Integer qualityCategory, Date dateLoanTo, Date dateLoanFrom, double loanAmount, double customersWeight) {
         this.id = id;
         this.name = name;
         this.rate = rate;
@@ -20,6 +21,7 @@ public class Customer {
         this.dateLoanTo = dateLoanTo;
         this.dateLoanFrom = dateLoanFrom;
         this.loanAmount = loanAmount;
+        this.customersWeight = customersWeight;
     }
 
     @Override
@@ -33,7 +35,16 @@ public class Customer {
                 ", dateLoanTo=" + dateLoanTo +
                 ", dateLoanFrom=" + dateLoanFrom +
                 ", loanAmount=" + loanAmount +
-                '}'+ '\n';
+                ", customersWeight=" + customersWeight +
+                '}';
+    }
+
+    public double getCustomersWeight() {
+        return customersWeight;
+    }
+
+    public void setCustomersWeight(double customersWeight) {
+        this.customersWeight = customersWeight;
     }
 
     public Integer getId() {

@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class WorksBD implements ActionsBD {
     Connection connection = DriverManager.getConnection(DataBase.getDbUrl(), DataBase.getDbUsername(), DataBase.getDbPassword());
-
+    DataBase dataBase = new DataBase(); // Для мапы
     private Scanner scanner;
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
 
@@ -50,7 +50,7 @@ public class WorksBD implements ActionsBD {
         preparedStatement.setDate(6, sqlDateFrom);
         preparedStatement.setDouble(7, loanAmount);
         preparedStatement.executeUpdate();
-
+        dataBase.readingBD(); // Для мапы
         return name;
     }
     @Override
@@ -61,6 +61,6 @@ public class WorksBD implements ActionsBD {
         PreparedStatement preparedStatement = connection.prepareStatement(SQL_DELETE_REQUESTSCUSTOMER);
         preparedStatement.setInt(1,id);
         preparedStatement.executeUpdate();
-
+        dataBase.readingBD(); // Для мапы
     }
 }

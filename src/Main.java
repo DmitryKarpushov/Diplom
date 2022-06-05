@@ -1,5 +1,6 @@
 import database.DataBase;
 import database.WorksBD;
+import service.Analysis;
 import service.Calculator;
 import service.WorkClients;
 
@@ -14,6 +15,7 @@ public class Main {
         Calculator calculator = new Calculator();
         WorksBD worksBD = new WorksBD(scanner);
         WorkClients workClients = new WorkClients();
+        Analysis analysis = new Analysis();
         printMenu();
         while (true) {
             int command = scanner.nextInt();
@@ -45,10 +47,12 @@ public class Main {
                     break;
                 case 6:
                     System.out.println("Вывод списка ребер: ");
-                    workClients.printWeightClients(dataBase.getCustomersWeight());
+                    workClients.printWeightClients(dataBase.getMapCustomers());
                     printMenu();
                     break;
                 case 7:
+                    System.out.println("Проведем анализ");
+                    analysis.Test(dataBase.getMapCustomers());
                     printMenu();
                     break;
                 case 8:
@@ -74,7 +78,7 @@ public class Main {
         System.out.println("4 - Удалить клиента из базы");
         System.out.println("5 - Печать списка клиентов");
         System.out.println("6 - Вывод списка весов рёбер");
-        System.out.println("7 - ");
+        System.out.println("7 - Анализ ");
         System.out.println("8 - Вывести меню");
         System.out.println("9 - Выйти из приложения");
     }

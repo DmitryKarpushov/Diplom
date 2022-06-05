@@ -14,9 +14,9 @@ public class WorkClients implements WorkingClients {
     }
 
     @Override
-    public void printWeightClients(Map<Integer, Double> customersWeight) {
-        for (Map.Entry<Integer, Double> weight : customersWeight.entrySet()) {
-            System.out.println(weight);
+    public void printWeightClients(Map<Integer, Customer> mapCustomers) {
+        for (Map.Entry<Integer, Customer> customerEntry : mapCustomers.entrySet()) {
+            System.out.println("ФИО :"+ customerEntry.getValue().getName() + " Вес : " + customerEntry.getValue().getCustomersWeight());
         }
     }
 }
